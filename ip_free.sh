@@ -9,5 +9,6 @@
 /sbin/iptables -L --line-number | grep -E '^[0-9]+.+DROP' | \
 awk '{print $1}' | while read -r badip ; do
 	 /sbin/iptables -D INPUT "$badip"
+	 sleep 1
 done
 
